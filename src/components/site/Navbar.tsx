@@ -24,14 +24,14 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed left-0 right-0 top-4 z-50 px-3 sm:px-4 md:top-6">
+    <header className="fixed left-0 right-0 top-4 z-50 px-2 sm:px-4 md:top-6">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-3 py-3 transition-all sm:px-4 md:px-6 ${
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-full px-2 py-2.5 transition-all sm:px-4 sm:py-3 md:px-6 ${
           scrolled ? "glass-strong shadow-luxe" : "glass"
         }`}
       >
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="Sunstar Kitchen Equipments" className="h-8 w-auto sm:h-9" />
+        <Link to="/" className="flex items-center gap-1 shrink-0">
+          <img src={logo} alt="Sunstar Kitchen Equipments" className="h-7 w-auto sm:h-8 md:h-9" />
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -47,42 +47,42 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-2 sm:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <a
             href="https://wa.me/917259150715"
             target="_blank"
             rel="noopener"
-            className="grid h-9 w-9 place-items-center rounded-full border border-[var(--line)] text-[var(--ink)] transition hover:border-[var(--brand-red)] hover:text-[var(--brand-red)] sm:h-10 sm:w-10"
+            className="grid h-10 w-10 place-items-center rounded-full border border-[var(--line)] text-[var(--ink)] transition hover:border-[var(--brand-red)] hover:text-[var(--brand-red)]"
             aria-label="WhatsApp"
           >
             <MessageCircle className="h-4 w-4" />
           </a>
           <Link
             to="/contact"
-            className="rounded-full bg-[var(--ink)] px-4 py-2 font-grotesk text-xs font-medium text-white transition hover:bg-[var(--brand-red)] sm:px-5 sm:py-2.5 sm:text-sm"
+            className="rounded-full bg-[var(--ink)] px-5 py-2.5 font-grotesk text-sm font-medium text-white transition hover:bg-[var(--brand-red)]"
           >
             Call Now
           </Link>
         </div>
 
         <button
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--line)] sm:hidden"
+          className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[var(--line)] md:hidden"
           onClick={() => setOpen((o) => !o)}
           aria-label="Menu"
         >
-          {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {open ? <X className="h-3.5 w-3.5" /> : <Menu className="h-3.5 w-3.5" />}
         </button>
       </nav>
 
       {open && (
-        <div className="mx-3 mt-2 rounded-3xl glass-strong p-4 shadow-luxe sm:mx-auto sm:max-w-6xl lg:hidden reveal">
+        <div className="mx-2 mt-2 rounded-3xl glass-strong p-3 shadow-luxe sm:mx-4 sm:p-4 md:mx-auto md:max-w-6xl lg:hidden reveal">
           <ul className="grid gap-1">
             {links.map((l) => (
               <li key={l.to}>
                 <Link
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-4 py-3 font-grotesk font-medium hover:bg-[var(--soft-red)]"
+                  className="block rounded-2xl px-3 py-2.5 font-grotesk text-sm font-medium hover:bg-[var(--soft-red)] sm:px-4 sm:py-3"
                 >
                   {l.label}
                 </Link>
@@ -92,10 +92,21 @@ export function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="block rounded-2xl bg-[var(--ink)] px-4 py-3 text-center font-grotesk font-medium text-white"
+                className="block rounded-2xl bg-[var(--ink)] px-3 py-2.5 text-center font-grotesk text-sm font-medium text-white sm:px-4 sm:py-3"
               >
                 Call Now
               </Link>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/917259150715"
+                target="_blank"
+                rel="noopener"
+                onClick={() => setOpen(false)}
+                className="mt-1 flex items-center justify-center gap-2 rounded-2xl border border-[var(--line)] px-3 py-2.5 font-grotesk text-sm font-medium hover:bg-[var(--soft-red)] sm:px-4 sm:py-3"
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
             </li>
           </ul>
         </div>
