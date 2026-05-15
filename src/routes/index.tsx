@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, MessageCircle, Sparkles, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/Kitchen Equipment for Hotels.webp";
 import detailImg from "@/assets/Steel Cutting & Fabrication.webp";
@@ -14,16 +14,8 @@ import nithinKanchan from "@/assets/ClientReview/Nithin_Kanchan-Managing Partner
 import raghavendraKanchan from "@/assets/ClientReview/Raghavendra_Kanchan-Managing Partner-Rajathagiri Palace.jpeg";
 import sathyanarayanAmpar from "@/assets/ClientReview/Sathyanarayan Ampar-Managing Partner-Udupi Krishnam Hotel.jpeg";
 import { Eyebrow } from "@/components/site/Section";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sunstar — Precision Crafted Commercial Kitchen Spaces" },
-      { name: "description", content: "Luxury stainless steel kitchen systems for hotels, restaurants, bakeries, hospitals — engineered in Bengaluru." },
-    ],
-  }),
-  component: HomePage,
-});
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
 const services = [
   { t: "Kitchen Equipment for Hotels & Restaurants", n: "01" },
@@ -98,7 +90,9 @@ const reviews = [
 
 function HomePage() {
   return (
-    <div className="overflow-hidden">
+    <>
+      <Navbar />
+      <div className="overflow-hidden">
       {/* HERO */}
       <section className="relative pt-28 md:pt-36">
         <div className="absolute inset-0 bg-grid opacity-50" />
@@ -455,5 +449,9 @@ function HomePage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default HomePage;
