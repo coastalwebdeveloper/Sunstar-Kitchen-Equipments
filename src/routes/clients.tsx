@@ -53,7 +53,7 @@ function ClientsPage() {
         {/* CLIENT LOGOS SECTION */}
         <div className="mt-16">
           <Eyebrow>Our Valued Partners</Eyebrow>
-          <div className="mt-8 grid gap-6 grid-cols-3">
+          <div className="mt-8 grid gap-6 grid-cols-2 md:grid-cols-3">
             {clientLogos.map((client, i) => (
               <div
                 key={i}
