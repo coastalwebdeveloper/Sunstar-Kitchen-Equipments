@@ -1,5 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Eyebrow } from "@/components/site/Section";
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 import kitchenEquipment from "@/assets/Kitchen Equipment for Hotels.webp";
 import iceCreamDisplay from "@/assets/Ice Cream Display Counters.webp";
 import pastryDisplay from "@/assets/Pastry Display Counters.webp";
@@ -16,16 +17,6 @@ import finalFinishing from "@/assets/Final Finishing.webp";
 import { ArrowUpRight, Star, CheckCircle, Users, Award, Clock, MessageCircle, Phone, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import React from "react";
-
-export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Projects — Sunstar Kitchen Equipments" },
-      { name: "description", content: "Selected installations across hotels, restaurants, bakeries, hospitals, food courts and corporate kitchens." },
-    ],
-  }),
-  component: ProjectsPage,
-});
 
 const cats = ["All", "Hotels", "Restaurants", "Bakeries", "Hospitals", "Equipment", "Corporate", "Company"] as const;
 
@@ -171,7 +162,9 @@ function ProjectsPage() {
   }, []);
 
   return (
-    <div>
+    <>
+      <Navbar />
+      <div>
       <PageHeader
         eyebrow="Portfolio"
         title={<>Our Projects <span className="italic font-light text-[var(--brand-red)]">Gallery</span>.</>}
@@ -373,5 +366,9 @@ function ProjectsPage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default ProjectsPage;

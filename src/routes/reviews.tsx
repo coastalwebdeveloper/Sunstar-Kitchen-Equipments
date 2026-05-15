@@ -1,17 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/Section";
 import { Star, PlayCircle } from "lucide-react";
 import companyProfile from "@/assets/Our Company Profile.webp";
-
-export const Route = createFileRoute("/reviews")({
-  head: () => ({
-    meta: [
-      { title: "Reviews — Sunstar Kitchen Equipments" },
-      { name: "description", content: "What chefs, owners and architects say about working with Sunstar." },
-    ],
-  }),
-  component: ReviewsPage,
-});
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
 const reviews = [
   { n: "Rajesh Kumar", r: "Hotel Manager", l: "Bengaluru", t: "Hotel Kitchen", s: 5,
@@ -30,7 +21,9 @@ const reviews = [
 
 function ReviewsPage() {
   return (
-    <div>
+    <>
+      <Navbar />
+      <div>
       <PageHeader
         eyebrow="Customer reviews"
         title={<>What our <span className="italic font-light text-[var(--brand-red)]">clients</span> say about us.</>}
@@ -89,5 +82,9 @@ function ReviewsPage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default ReviewsPage;

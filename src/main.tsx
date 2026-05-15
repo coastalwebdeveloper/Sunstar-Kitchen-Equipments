@@ -10,6 +10,7 @@ import ServicesPage from './routes/services'
 import ProjectsPage from './routes/projects'
 import ClientsPage from './routes/clients'
 import ReviewsPage from './routes/reviews'
+import ContactPage from './routes/contact'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/clients" element={<ClientsPage />} />
         <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   )

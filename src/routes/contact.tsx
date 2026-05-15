@@ -1,22 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Eyebrow } from "@/components/site/Section";
 import { MapPin, Phone, Mail, MessageCircle, Clock, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Sunstar Kitchen Equipments" },
-      { name: "description", content: "Talk to our team about your commercial kitchen project — Bengaluru workshop, pan-India service." },
-    ],
-  }),
-  component: ContactPage,
-});
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
   return (
-    <div>
+    <>
+      <Navbar />
+      <div>
       <PageHeader
         eyebrow="Contact"
         title={<>Let's talk about your <span className="italic font-light text-[var(--brand-red)]">kitchen</span>.</>}
@@ -81,8 +74,12 @@ function ContactPage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default ContactPage;
 
 function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
   return (

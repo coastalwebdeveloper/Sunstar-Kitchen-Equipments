@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import logo from "@/assets/Logo.webp";
@@ -40,17 +40,8 @@ export function Navbar() {
               <Link
                 to={l.to}
                 className="group relative rounded-full px-4 py-2 font-grotesk text-sm font-medium text-[var(--ink)]/70 transition hover:text-[var(--ink)]"
-                activeProps={{ className: "text-[var(--ink)]" }}
-                activeOptions={{ exact: l.to === "/" }}
               >
-                {({ isActive }) => (
-                  <>
-                    <span className="underline-gold">{l.label}</span>
-                    {isActive && (
-                      <span className="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[var(--brand-red)]" />
-                    )}
-                  </>
-                )}
+                <span className="underline-gold">{l.label}</span>
               </Link>
             </li>
           ))}
@@ -112,3 +103,5 @@ export function Navbar() {
     </header>
   );
 }
+
+export default Navbar;

@@ -1,15 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Eyebrow } from "@/components/site/Section";
-
-export const Route = createFileRoute("/clients")({
-  head: () => ({
-    meta: [
-      { title: "Clients — Sunstar Kitchen Equipments" },
-      { name: "description", content: "Long-term partnerships with India's leading hospitality, retail and healthcare brands." },
-    ],
-  }),
-  component: ClientsPage,
-});
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
 const groups = {
   "Hotels & Resorts": ["Grand Palace Hotel", "Royal Inn", "Heritage Resort", "City Plaza", "Business Hotel", "Luxury Suites", "Garden Resort", "Metro Inn"],
@@ -28,7 +19,9 @@ const stats = [
 
 function ClientsPage() {
   return (
-    <div>
+    <>
+      <Navbar />
+      <div>
       <PageHeader
         eyebrow="Partnerships"
         title={<>Trusted by <span className="italic font-light text-[var(--brand-red)]">businesses</span> across Bengaluru.</>}
@@ -75,5 +68,9 @@ function ClientsPage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default ClientsPage;

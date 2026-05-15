@@ -1,6 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { PageHeader, Eyebrow } from "@/components/site/Section";
 import { ArrowUpRight } from "lucide-react";
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 import kitchenEquipment from "@/assets/Kitchen Equipment for Hotels.webp";
 import freezers from "@/assets/Commercial Freezers & Chillers.webp";
 import exhaustSystems from "@/assets/Fresh Air & Exhaust Systems.webp";
@@ -17,16 +19,6 @@ import koreanDisplay from "@/assets/Korean Display Counters.webp";
 import koreanTables from "@/assets/SS Chairs & Korean Tables.webp";
 import ovens from "@/assets/Ovens & Cake Mixers.webp";
 import utility from "@/assets/Utility Equipment.webp";
-
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — Sunstar Kitchen Equipments" },
-      { name: "description", content: "Hotel kitchens, bakery equipment, exhaust systems, steam boilers, display counters, gas pipelines and custom SS fabrication." },
-    ],
-  }),
-  component: ServicesPage,
-});
 
 const services = [
   { n: "01", t: "Kitchen Equipment for Hotels & Restaurants", img: kitchenEquipment, d: "Complete range of professional kitchen equipment including cooking ranges, ovens, grills, and preparation stations designed specifically for hotel operations." },
@@ -49,7 +41,9 @@ const services = [
 
 function ServicesPage() {
   return (
-    <div>
+    <>
+      <Navbar />
+      <div>
       <PageHeader
         eyebrow="Capabilities"
         title={<>Our Services & <span className="italic font-light text-[var(--brand-red)]">Products</span>.</>}
@@ -85,5 +79,9 @@ function ServicesPage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default ServicesPage;

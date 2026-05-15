@@ -1,24 +1,18 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { PageHeader, Eyebrow } from "@/components/site/Section";
 import companyProfile from "@/assets/Our Company Profile.webp";
 import manufacturing from "@/assets/Steel Cutting & Fabrication.webp";
 import qualityControl from "@/assets/Quality Control.webp";
 import whyTrust from "@/assets/Why Businesses Trust Us.webp";
 import { ArrowUpRight } from "lucide-react";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Sunstar Kitchen Equipments" },
-      { name: "description", content: "Bengaluru-based atelier crafting precision stainless steel commercial kitchen systems for fifteen years." },
-    ],
-  }),
-  component: AboutPage,
-});
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
 function AboutPage() {
   return (
-    <div>
+    <>
+      <Navbar />
+      <div>
       <PageHeader
         eyebrow="About the studio"
         title={<>About Sunstar <span className="italic font-light text-[var(--brand-red)]">Kitchen Equipments</span>.</>}
@@ -87,5 +81,9 @@ function AboutPage() {
         </div>
       </section>
     </div>
+    <Footer />
+    </>
   );
 }
+
+export default AboutPage;

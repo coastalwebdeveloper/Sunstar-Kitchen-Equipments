@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import logo from "@/assets/Logo.webp";
 
@@ -58,3 +58,4 @@ export function Footer() {
     </footer>
   );
 }
+export default Footer;
