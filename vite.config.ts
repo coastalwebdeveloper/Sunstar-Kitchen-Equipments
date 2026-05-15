@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [
     ...tanstackStart({
       server: { entry: 'server' },
+      adapter: 'vercel',
     }),
     TanStackRouterVite(),
     tailwindcss(),
