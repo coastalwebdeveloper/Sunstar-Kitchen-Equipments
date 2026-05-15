@@ -51,8 +51,21 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-[var(--line)] pt-6 md:flex-row md:items-center">
-          <p className="font-grotesk text-xs text-[var(--mute)]">© {new Date().getFullYear()} Sunstar Kitchen Equipments. All rights reserved. | Proprietor: Rakshith Poojary</p>
-          <p className="font-grotesk text-xs text-[var(--mute)]">Bengaluru · India</p>
+          <p className="font-grotesk text-xs text-[var(--mute)]">© {new Date().getFullYear()} Sunstar Kitchen Equipments. All rights reserved.</p>
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <p className="font-grotesk text-xs text-[var(--mute)]">Bengaluru · India</p>
+            <p className="font-grotesk text-xs text-[var(--mute)]">
+              Designed & Developed by{" "}
+              <a 
+                href="https://www.dotdesigntech.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="underline-gold font-medium text-[var(--brand-red)] hover:text-[var(--brand-gold)]"
+              >
+                Dot Design
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

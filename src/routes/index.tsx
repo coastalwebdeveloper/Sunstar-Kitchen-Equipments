@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, MessageCircle, Sparkles, ChevronRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle, Sparkles, ChevronRight, ChefHat, Refrigerator, Wind, Flame, Cross, IceCream, Cake, Zap } from "lucide-react";
 import heroImg from "@/assets/Kitchen Equipment for Hotels.webp";
 import detailImg from "@/assets/Steel Cutting & Fabrication.webp";
 import bakeryImg from "@/assets/Ice Cream Display Counters.webp";
@@ -18,14 +18,14 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 
 const services = [
-  { t: "Kitchen Equipment for Hotels & Restaurants", n: "01" },
-  { t: "Commercial Freezers & Display Counters", n: "02" },
-  { t: "Fresh Air & Exhaust Systems", n: "03" },
-  { t: "Gas Line & Steam Line Installation", n: "04" },
-  { t: "Custom SS Works for Hospitals", n: "05" },
-  { t: "Ice Cream Display Counters", n: "06" },
-  { t: "Pastry Display Counters", n: "07" },
-  { t: "Steam Boilers", n: "08" },
+  { t: "Kitchen Equipment for Hotels & Restaurants", n: "01", icon: ChefHat },
+  { t: "Commercial Freezers & Display Counters", n: "02", icon: Refrigerator },
+  { t: "Fresh Air & Exhaust Systems", n: "03", icon: Wind },
+  { t: "Gas Line & Steam Line Installation", n: "04", icon: Flame },
+  { t: "Custom SS Works for Hospitals", n: "05", icon: Cross },
+  { t: "Ice Cream Display Counters", n: "06", icon: IceCream },
+  { t: "Pastry Display Counters", n: "07", icon: Cake },
+  { t: "Steam Boilers", n: "08", icon: Zap },
 ];
 
 const stats = [
@@ -36,7 +36,12 @@ const stats = [
 ];
 
 const process = [
-  "Consultation", "Planning", "Design", "Manufacturing", "Installation", "Quality Testing",
+  { step: "Consultation", desc: "Initial site visit and requirement analysis with detailed measurements." },
+  { step: "Planning", desc: "Custom layout design and workflow optimization for maximum efficiency." },
+  { step: "Design", desc: "3D modeling and technical drawings with material specifications." },
+  { step: "Manufacturing", desc: "Precision fabrication using premium SS 304 grade stainless steel." },
+  { step: "Installation", desc: "Professional on-site installation with complete system integration." },
+  { step: "Quality Testing", desc: "Comprehensive testing and commissioning with performance validation." },
 ];
 
 const clients = [
@@ -51,41 +56,23 @@ const clientReviews = [
     image: govindaBabu
   },
   {
-    name: "Nithin Kanchan",
-    designation: "Managing Partner",
-    company: "Udupi Kai Ruchi",
-    image: nithinKanchan
-  },
-  {
     name: "Raghavendra Kanchan",
     designation: "Managing Partner",
     company: "Rajathagiri Palace",
     image: raghavendraKanchan
   },
   {
+    name: "Nithin Kanchan",
+    designation: "Managing Partner",
+    company: "Udupi Kai Ruchi",
+    image: nithinKanchan
+  },
+  {
     name: "Sathyanarayan Ampar",
     designation: "Managing Partner",
-    company: "Udupi Krishnam Hotel",
+    company: "Krishnam Udupi Hotel",
     image: sathyanarayanAmpar
   }
-];
-
-const reviews = [
-  {
-    name: "Ar. Karan Mehta",
-    role: "Hospitality Architect, Mumbai",
-    body: "Sunstar's craftsmanship sits comfortably next to the finest finishes on a five-star floor. The welds are jewellery-grade.",
-  },
-  {
-    name: "Chef Anand Iyer",
-    role: "Culinary Director, Bengaluru",
-    body: "Workflow, ergonomics, exhaust — every centimetre considered. The kitchen runs quieter and cooler than anything we've owned.",
-  },
-  {
-    name: "Priya Nair",
-    role: "Owner, Brioche Bakery",
-    body: "From boiler to display counter, one team handled it all. Three years in and not a single service call.",
-  },
 ];
 
 function HomePage() {
@@ -228,18 +215,26 @@ function HomePage() {
           </div>
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--line)] md:grid-cols-4">
-            {services.map((s) => (
-              <Link
-                to="/services"
-                key={s.t}
-                className="group relative bg-white p-6 transition hover:bg-[var(--soft-red)]"
-              >
-                <span className="font-grotesk text-xs uppercase tracking-widest text-[var(--mute)]">/{s.n}</span>
-                <p className="mt-10 font-display text-xl font-semibold leading-tight">{s.t}</p>
-                <ArrowUpRight className="absolute right-5 top-5 h-4 w-4 text-[var(--mute)] transition group-hover:text-[var(--brand-red)]" />
-                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-[var(--brand-red)] transition-all group-hover:w-full" />
-              </Link>
-            ))}
+            {services.map((s) => {
+              const IconComponent = s.icon;
+              return (
+                <Link
+                  to="/services"
+                  key={s.t}
+                  className="group relative bg-white p-6 transition hover:bg-[var(--soft-red)]"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-grotesk text-xs uppercase tracking-widest text-[var(--mute)]">/{s.n}</span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--soft-red)] text-[var(--brand-red)] transition group-hover:bg-[var(--brand-red)] group-hover:text-white">
+                      <IconComponent className="h-5 w-5" />
+                    </div>
+                  </div>
+                  <p className="mt-6 font-display text-xl font-semibold leading-tight">{s.t}</p>
+                  <ArrowUpRight className="absolute right-5 top-5 h-4 w-4 text-[var(--mute)] transition group-hover:text-[var(--brand-red)]" />
+                  <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-[var(--brand-red)] transition-all group-hover:w-full" />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -331,54 +326,20 @@ function HomePage() {
           <div className="mt-14 relative">
             <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-[var(--line)] to-transparent md:block" />
             <ol className="grid gap-8 md:gap-6 md:grid-cols-6">
-              {process.map((step, i) => (
-                <li key={step} className="relative flex items-start gap-4 md:block">
-                  <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border border-[var(--line)] bg-white font-display text-sm font-semibold shadow-luxe">
+              {process.map((item, i) => (
+                <li key={item.step} className="relative flex items-start gap-4 md:block">
+                  <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-2 border-[var(--brand-red)] bg-gradient-to-br from-[var(--brand-red)] to-[var(--brand-gold)] font-display text-sm font-bold text-white shadow-luxe">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div className="flex-1 md:mt-5">
-                    <p className="font-display text-lg font-semibold">{step}</p>
-                    <p className="mt-1 font-body text-sm text-[var(--mute)]">
-                      Stage {i + 1} of our six-stage delivery model.
+                    <p className="font-display text-lg font-semibold">{item.step}</p>
+                    <p className="mt-2 font-body text-sm leading-relaxed text-[var(--mute)]">
+                      {item.desc}
                     </p>
                   </div>
                 </li>
               ))}
             </ol>
-          </div>
-        </div>
-      </section>
-
-      {/* REVIEWS */}
-      <section className="relative bg-[var(--soft-gold)]/30 py-24 md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <Eyebrow>Voices</Eyebrow>
-              <h2 className="mt-6 max-w-2xl font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-                Trusted by the people who run the room.
-              </h2>
-            </div>
-            <Link to="/reviews" className="inline-flex items-center gap-2 rounded-full border border-[var(--ink)] px-5 py-3 font-grotesk text-sm font-medium transition hover:bg-[var(--ink)] hover:text-white">
-              All reviews <ChevronRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {reviews.map((r) => (
-              <figure key={r.name} className="rounded-3xl glass-strong p-7 shadow-luxe">
-                <div className="flex gap-0.5 text-[var(--brand-gold)]">
-                  {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
-                </div>
-                <blockquote className="mt-5 font-display text-lg font-medium leading-snug">
-                  "{r.body}"
-                </blockquote>
-                <figcaption className="mt-6 border-t border-[var(--line)] pt-4">
-                  <p className="font-display font-semibold">{r.name}</p>
-                  <p className="font-grotesk text-xs text-[var(--mute)]">{r.role}</p>
-                </figcaption>
-              </figure>
-            ))}
           </div>
         </div>
       </section>

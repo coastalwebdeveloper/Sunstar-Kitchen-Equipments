@@ -55,10 +55,10 @@ function ContactPage() {
 
           {/* Side info */}
           <div className="md:col-span-5 space-y-4">
-            <InfoCard icon={MapPin} title="Workshop & studio" body={<>Peenya Industrial Area<br />Bengaluru, Karnataka 560058</>} />
-            <InfoCard icon={Phone} title="Speak to us" body={<a href="tel:+919999999999" className="underline-gold">+91 99999 99999</a>} />
-            <InfoCard icon={Mail} title="Email" body={<a href="mailto:hello@sunstar.in" className="underline-gold">hello@sunstar.in</a>} />
-            <InfoCard icon={MessageCircle} title="WhatsApp" body={<a href="https://wa.me/919999999999" className="underline-gold">Chat on WhatsApp</a>} />
+            <InfoCard icon={MapPin} title="Workshop & studio" body={<>Smart Works, 11th Main, Pipeline Rd<br />Bengaluru, Karnataka 560091</>} />
+            <InfoCard icon={Phone} title="Speak to us" body={<a href="tel:+917259150715" className="underline-gold">+91 7259150715</a>} />
+            <InfoCard icon={Mail} title="Email" body={<a href="mailto:sunstarequipments@gmail.com" className="underline-gold">sunstarequipments@gmail.com</a>} />
+            <InfoCard icon={MessageCircle} title="WhatsApp" body={<a href="https://wa.me/917259150715" className="underline-gold">Chat on WhatsApp</a>} />
             <InfoCard icon={Clock} title="Hours" body={<>Mon–Sat · 09:00 – 19:00 IST</>} />
           </div>
         </div>
@@ -66,10 +66,11 @@ function ContactPage() {
         {/* Map */}
         <div className="mt-12 overflow-hidden rounded-3xl border border-[var(--line)] shadow-luxe">
           <iframe
-            title="Sunstar location"
-            src="https://www.google.com/maps?q=Peenya%20Industrial%20Area%20Bengaluru&output=embed"
+            title="Sunstar Kitchen Equipments Location"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15549.693456789012!2d77.5108076!3d12.9937116!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3dda553dd77b%3A0x9ee5bd9f33efb2ec!2sSUNSTAR%20KITCHEN%20EQUIPMENTS!5e0!3m2!1sen!2sin!4v1640995200000!5m2!1sen!2sin"
             className="h-[420px] w-full"
             loading="lazy"
+            allowFullScreen
           />
         </div>
       </section>

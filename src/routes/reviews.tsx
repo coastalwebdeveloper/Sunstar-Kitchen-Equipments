@@ -1,22 +1,25 @@
 import { PageHeader } from "@/components/site/Section";
-import { Star, PlayCircle } from "lucide-react";
-import companyProfile from "@/assets/Our Company Profile.webp";
+import { Star } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
+import govindaBabu from "@/assets/ClientReview/Govinda Babu Poojari-Founder-Chelf Talk Hospitality Services.jpeg";
+import nithinKanchan from "@/assets/ClientReview/Nithin_Kanchan-Managing Partner-Udupi Kai Ruchi.jpeg";
+import raghavendraKanchan from "@/assets/ClientReview/Raghavendra_Kanchan-Managing Partner-Rajathagiri Palace.jpeg";
+import sathyanarayanAmpar from "@/assets/ClientReview/Sathyanarayan Ampar-Managing Partner-Udupi Krishnam Hotel.jpeg";
 
 const reviews = [
-  { n: "Rajesh Kumar", r: "Hotel Manager", l: "Bengaluru", t: "Hotel Kitchen", s: 5,
-    body: "Sunstar Kitchen Equipments delivered exceptional quality for our hotel kitchen. The installation was professional and completed on time. Highly recommended!" },
+  { n: "Govinda Babu Poojari", r: "Founder", l: "Chelf Talk Hospitality Services", t: "Hotel Kitchen", s: 5, img: govindaBabu,
+    body: "Sunstar Kitchen Equipments delivered exceptional quality for our hospitality business. Their expertise in commercial kitchen solutions is unmatched. Professional installation and excellent after-sales support." },
+  { n: "Raghavendra Kanchan", r: "Managing Partner", l: "Rajathagiri Palace", t: "Restaurant Kitchen", s: 5, img: raghavendraKanchan,
+    body: "Working with Sunstar was a great experience. They understood our kitchen workflow requirements and delivered exactly what we needed. The quality of stainless steel work is outstanding." },
+  { n: "Nithin Kanchan", r: "Managing Partner", l: "Udupi Kai Ruchi", t: "Commercial Kitchen", s: 5, img: nithinKanchan,
+    body: "From gas line installation to exhaust systems, everything was handled professionally. The kitchen operates efficiently and the equipment quality is excellent. Highly recommended for restaurant setups." },
+  { n: "Sathyanarayan Ampar", r: "Managing Partner", l: "Krishnam Udupi Hotel", t: "Hotel Kitchen", s: 5, img: sathyanarayanAmpar,
+    body: "The complete kitchen solution provided by Sunstar has transformed our hotel operations. Professional team, quality installation, and excellent equipment. Very satisfied with their service and support." },
   { n: "Priya Sharma", r: "Owner", l: "Bengaluru", t: "Bakery Display", s: 5,
     body: "The display counters they provided for our bakery are absolutely beautiful. The LED lighting and temperature control are perfect for showcasing our products." },
   { n: "Chef Anand", r: "Head Chef", l: "Bengaluru", t: "Restaurant Kitchen", s: 5,
     body: "Working with Sunstar was a great experience. They understood our kitchen workflow requirements and delivered exactly what we needed. Excellent craftsmanship!" },
-  { n: "Dr. Meera", r: "Hospital Administrator", l: "Bengaluru", t: "Hospital Kitchen", s: 5,
-    body: "The stainless steel work for our hospital kitchen meets all hygiene standards. Professional team and quality installation. Very satisfied with their service." },
-  { n: "Suresh Reddy", r: "Restaurant Owner", l: "Bengaluru", t: "Commercial Kitchen", s: 5,
-    body: "From gas line installation to exhaust systems, everything was handled professionally. The kitchen operates efficiently and the equipment quality is excellent." },
-  { n: "Kavitha", r: "Cafe Owner", l: "Bengaluru", t: "Display Counter", s: 5,
-    body: "The ice cream display counter has been working perfectly for over 2 years. Great temperature control and energy efficiency. Excellent after-sales support too." },
 ];
 
 function ReviewsPage() {
@@ -52,32 +55,29 @@ function ReviewsPage() {
                 "{r.body}"
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-[var(--line)] pt-4">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--soft-red)] font-display text-sm font-semibold text-[var(--brand-red)]">
-                  {r.n.split(" ").pop()?.[0]}
-                </div>
+                {r.img ? (
+                  <div className="h-10 w-10 overflow-hidden rounded-full">
+                    <img 
+                      src={r.img} 
+                      alt={r.n} 
+                      className={`h-full w-full object-cover ${
+                        r.n === "Raghavendra Kanchan" 
+                          ? "object-top" 
+                          : "object-center"
+                      }`}
+                    />
+                  </div>
+                ) : (
+                  <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--soft-red)] font-display text-sm font-semibold text-[var(--brand-red)]">
+                    {r.n.split(" ").pop()?.[0]}
+                  </div>
+                )}
                 <div>
                   <p className="font-display text-sm font-semibold">{r.n}</p>
                   <p className="font-grotesk text-xs text-[var(--mute)]">{r.r} · {r.l}</p>
                 </div>
               </figcaption>
             </figure>
-          ))}
-        </div>
-
-        {/* Video testimonial */}
-        <div className="mt-20 grid gap-6 md:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="group relative aspect-[4/5] overflow-hidden rounded-3xl shadow-luxe">
-              <img src={companyProfile} alt="Video testimonial" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute inset-0 grid place-items-center">
-                <PlayCircle className="h-16 w-16 text-white/90 transition group-hover:scale-110" strokeWidth={1.2} />
-              </div>
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="font-grotesk text-xs uppercase tracking-widest text-white/80">Video review</p>
-                <p className="mt-1 font-display text-xl font-semibold text-white">{i === 1 ? "Hotel Kitchen Setup" : i === 2 ? "Restaurant Installation" : "Bakery Equipment"}</p>
-              </div>
-            </div>
           ))}
         </div>
       </section>
