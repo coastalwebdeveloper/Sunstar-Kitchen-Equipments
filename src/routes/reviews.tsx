@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/Section";
 import { Star, PlayCircle } from "lucide-react";
-import resto from "@/assets/project-restaurant.jpg";
+import companyProfile from "@/assets/Our Company Profile.webp";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({
@@ -75,7 +75,7 @@ function ReviewsPage() {
         <div className="mt-20 grid gap-6 md:grid-cols-3">
           {[1, 2, 3].map((i) => (
             <div key={i} className="group relative aspect-[4/5] overflow-hidden rounded-3xl shadow-luxe">
-              <img src={resto} alt="Video testimonial" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+              <img src={companyProfile} alt="Video testimonial" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute inset-0 grid place-items-center">
                 <PlayCircle className="h-16 w-16 text-white/90 transition group-hover:scale-110" strokeWidth={1.2} />
