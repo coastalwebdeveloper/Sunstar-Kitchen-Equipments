@@ -31,7 +31,7 @@ export function Navbar() {
         }`}
       >
         <Link to="/" className="flex items-center gap-1 shrink-0">
-          <img src={logo} alt="Sunstar Kitchen Equipments" className="h-7 w-auto sm:h-8 md:h-9" />
+          <img src={logo} alt="Sunstar Kitchen Equipments" className="h-9 w-auto sm:h-10 md:h-12" />
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">

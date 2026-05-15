@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, MessageCircle, Sparkles, ChevronRight, ChefHat, Refrigerator, Wind, Flame, Cross, IceCream, Cake, Zap } from "lucide-react";
+import { ArrowUpRight, MessageCircle, Sparkles, ChevronRight, ChefHat, Refrigerator, Wind, Flame, Cross, IceCream, Cake, Zap, Users, PenTool, Hammer, Wrench, CheckCircle, Truck } from "lucide-react";
 import heroImg from "@/assets/Kitchen Equipment for Hotels.webp";
 import detailImg from "@/assets/Steel Cutting & Fabrication.webp";
 import bakeryImg from "@/assets/Ice Cream Display Counters.webp";
@@ -13,6 +13,15 @@ import govindaBabu from "@/assets/ClientReview/Govinda Babu Poojari-Founder-Chel
 import nithinKanchan from "@/assets/ClientReview/Nithin_Kanchan-Managing Partner-Udupi Kai Ruchi.jpeg";
 import raghavendraKanchan from "@/assets/ClientReview/Raghavendra_Kanchan-Managing Partner-Rajathagiri Palace.jpeg";
 import sathyanarayanAmpar from "@/assets/ClientReview/Sathyanarayan Ampar-Managing Partner-Udupi Krishnam Hotel.jpeg";
+import clientLogo1 from "@/assets/ClientLogo/Client Logo-01.jpg.jpeg";
+import clientLogo2 from "@/assets/ClientLogo/Client Logo-02.jpg.jpeg";
+import clientLogo3 from "@/assets/ClientLogo/Client Logo-03.jpg.jpeg";
+import clientLogo4 from "@/assets/ClientLogo/Client Logo-04.jpg.jpeg";
+import clientLogo5 from "@/assets/ClientLogo/Client Logo-05.jpg.jpeg";
+import clientLogo6 from "@/assets/ClientLogo/Client Logo-06.jpg.jpeg";
+import clientLogo7 from "@/assets/ClientLogo/Client Logo-07.jpg.jpeg";
+import clientLogo8 from "@/assets/ClientLogo/Client Logo-08.jpg.jpeg";
+import clientLogo9 from "@/assets/ClientLogo/Client Logo-09.jpg.jpeg";
 import { Eyebrow } from "@/components/site/Section";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
@@ -36,12 +45,17 @@ const stats = [
 ];
 
 const process = [
-  { step: "Consultation", desc: "Initial site visit and requirement analysis with detailed measurements." },
-  { step: "Planning", desc: "Custom layout design and workflow optimization for maximum efficiency." },
-  { step: "Design", desc: "3D modeling and technical drawings with material specifications." },
-  { step: "Manufacturing", desc: "Precision fabrication using premium SS 304 grade stainless steel." },
-  { step: "Installation", desc: "Professional on-site installation with complete system integration." },
-  { step: "Quality Testing", desc: "Comprehensive testing and commissioning with performance validation." },
+  { step: "Consultation", desc: "Initial site visit and requirement analysis with detailed measurements.", icon: Users },
+  { step: "Planning", desc: "Custom layout design and workflow optimization for maximum efficiency.", icon: PenTool },
+  { step: "Design", desc: "3D modeling and technical drawings with material specifications.", icon: PenTool },
+  { step: "Manufacturing", desc: "Precision fabrication using premium SS 304 grade stainless steel.", icon: Hammer },
+  { step: "Installation", desc: "Professional on-site installation with complete system integration.", icon: Wrench },
+  { step: "Quality Testing", desc: "Comprehensive testing and commissioning with performance validation.", icon: CheckCircle },
+];
+
+const clientLogos = [
+  clientLogo1, clientLogo2, clientLogo3, clientLogo4, clientLogo5,
+  clientLogo6, clientLogo7, clientLogo8, clientLogo9
 ];
 
 const clients = [
@@ -147,12 +161,16 @@ function HomePage() {
         </div>
 
         {/* Logo strip */}
-        <div className="relative mt-16 overflow-hidden border-y border-[var(--line)] py-6">
-          <div className="marquee flex w-max gap-16 pl-16">
-            {[...clients, ...clients].map((c, i) => (
-              <span key={i} className="font-display text-2xl font-light tracking-widest text-[var(--mute)]/60">
-                {c.toUpperCase()}
-              </span>
+        <div className="relative mt-16 overflow-hidden border-y border-[var(--line)] py-8">
+          <div className="marquee flex w-max items-center gap-16 pl-16">
+            {[...clientLogos, ...clientLogos].map((logo, i) => (
+              <div key={i} className="flex h-16 w-32 items-center justify-center">
+                <img 
+                  src={logo} 
+                  alt={`Client ${(i % clientLogos.length) + 1}`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -326,19 +344,22 @@ function HomePage() {
           <div className="mt-14 relative">
             <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-[var(--line)] to-transparent md:block" />
             <ol className="grid gap-8 md:gap-6 md:grid-cols-6">
-              {process.map((item, i) => (
-                <li key={item.step} className="relative flex items-start gap-4 md:block">
-                  <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-2 border-[var(--brand-red)] bg-gradient-to-br from-[var(--brand-red)] to-[var(--brand-gold)] font-display text-sm font-bold text-white shadow-luxe">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="flex-1 md:mt-5">
-                    <p className="font-display text-lg font-semibold">{item.step}</p>
-                    <p className="mt-2 font-body text-sm leading-relaxed text-[var(--mute)]">
-                      {item.desc}
-                    </p>
-                  </div>
-                </li>
-              ))}
+              {process.map((item, i) => {
+                const IconComponent = item.icon;
+                return (
+                  <li key={item.step} className="relative flex items-start gap-4 md:block">
+                    <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-2 border-[var(--brand-red)] bg-gradient-to-br from-[var(--brand-red)] to-[var(--brand-gold)] text-white shadow-luxe">
+                      <IconComponent className="h-6 w-6" />
+                    </div>
+                    <div className="flex-1 md:mt-5">
+                      <p className="font-display text-lg font-semibold">{item.step}</p>
+                      <p className="mt-2 font-body text-sm leading-relaxed text-[var(--mute)]">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
             </ol>
           </div>
         </div>
@@ -360,19 +381,26 @@ function HomePage() {
           <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {clientReviews.map((client, i) => (
               <div key={i} className="group text-center">
-                <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full shadow-luxe transition group-hover:-translate-y-2">
-                  <img 
-                    src={client.image} 
-                    alt={client.name} 
-                    className={`h-full w-full transition duration-700 group-hover:scale-110 ${
-                      client.name === "Raghavendra Kanchan" 
-                        ? "object-cover object-top" 
-                        : "object-cover object-center"
-                    }`}
-                    loading="lazy" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition group-hover:opacity-100" />
-                </div>
+                <Link to="/reviews" className="block">
+                  <div className="relative mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full shadow-luxe transition group-hover:-translate-y-2 cursor-pointer">
+                    <img 
+                      src={client.image} 
+                      alt={client.name} 
+                      className={`h-full w-full transition duration-700 group-hover:scale-110 ${
+                        client.name === "Raghavendra Kanchan" 
+                          ? "object-cover object-top" 
+                          : "object-cover object-center"
+                      }`}
+                      loading="lazy" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition group-hover:opacity-100" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
+                      <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-[var(--brand-red)]">
+                        View Review
+                      </span>
+                    </div>
+                  </div>
+                </Link>
                 <h3 className="font-display text-lg font-semibold">{client.name}</h3>
                 <p className="mt-1 font-grotesk text-sm text-[var(--brand-red)]">{client.designation}</p>
                 <p className="mt-1 font-grotesk text-xs text-[var(--mute)]">{client.company}</p>

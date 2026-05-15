@@ -1,18 +1,31 @@
 import { PageHeader, Eyebrow } from "@/components/site/Section";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
+import clientLogo1 from "@/assets/ClientLogo/Client Logo-01.jpg.jpeg";
+import clientLogo2 from "@/assets/ClientLogo/Client Logo-02.jpg.jpeg";
+import clientLogo3 from "@/assets/ClientLogo/Client Logo-03.jpg.jpeg";
+import clientLogo4 from "@/assets/ClientLogo/Client Logo-04.jpg.jpeg";
+import clientLogo5 from "@/assets/ClientLogo/Client Logo-05.jpg.jpeg";
+import clientLogo6 from "@/assets/ClientLogo/Client Logo-06.jpg.jpeg";
+import clientLogo7 from "@/assets/ClientLogo/Client Logo-07.jpg.jpeg";
+import clientLogo8 from "@/assets/ClientLogo/Client Logo-08.jpg.jpeg";
+import clientLogo9 from "@/assets/ClientLogo/Client Logo-09.jpg.jpeg";
 
-const groups = {
-  "Hotels & Resorts": ["Grand Palace Hotel", "Royal Inn", "Heritage Resort", "City Plaza", "Business Hotel", "Luxury Suites", "Garden Resort", "Metro Inn"],
-  "Restaurants": ["Spice Garden", "Urban Kitchen", "Coastal Cafe", "Rooftop Dining", "Family Restaurant", "Fine Dine", "Quick Bites", "Multi-Cuisine"],
-  "Bakeries & Cafes": ["Sweet Dreams Bakery", "Fresh Bakes", "Artisan Breads", "Cake Corner", "Coffee Culture", "Pastry Palace", "Bread Basket"],
-  "Hospitals & Healthcare": ["City Hospital", "Medical Center", "Healthcare Plus", "Wellness Hospital", "Specialty Clinic", "Nursing Home"],
-  "Corporate & Institutions": ["Tech Park Cafeteria", "Office Complex", "Educational Institute", "Training Center", "Corporate Kitchen"],
-};
+const clientLogos = [
+  { name: "Client 1", logo: clientLogo1 },
+  { name: "Client 2", logo: clientLogo2 },
+  { name: "Client 3", logo: clientLogo3 },
+  { name: "Client 4", logo: clientLogo4 },
+  { name: "Client 5", logo: clientLogo5 },
+  { name: "Client 6", logo: clientLogo6 },
+  { name: "Client 7", logo: clientLogo7 },
+  { name: "Client 8", logo: clientLogo8 },
+  { name: "Client 9", logo: clientLogo9 },
+];
 
 const stats = [
-  ["500+", "Projects completed"],
-  ["100+", "Happy clients"],
+  ["100+", "Projects completed"],
+  ["50+", "Happy clients"],
   ["15+", "Years experience"],
   ["24/7", "Support available"],
 ];
@@ -37,32 +50,21 @@ function ClientsPage() {
           ))}
         </div>
 
-        <div className="mt-16 space-y-16">
-          {Object.entries(groups).map(([cat, items]) => (
-            <div key={cat}>
-              <Eyebrow>{cat}</Eyebrow>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-                {items.map((c) => (
-                  <div
-                    key={c}
-                    className="group relative grid aspect-[5/3] place-items-center rounded-2xl glass-strong shadow-luxe transition hover:ring-brand"
-                  >
-                    <span className="font-display text-xl font-light tracking-widest text-[var(--ink)]/70 transition group-hover:text-[var(--brand-red)]">
-                      {c.toUpperCase()}
-                    </span>
-                  </div>
-                ))}
+        {/* CLIENT LOGOS SECTION */}
+        <div className="mt-16">
+          <Eyebrow>Our Valued Partners</Eyebrow>
+          <div className="mt-8 grid gap-6 grid-cols-3">
+            {clientLogos.map((client, i) => (
+              <div
+                key={i}
+                className="grid aspect-[3/2] place-items-center rounded-2xl glass-strong p-3 shadow-luxe"
+              >
+                <img 
+                  src={client.logo} 
+                  alt={client.name}
+                  className="max-h-full max-w-full object-contain"
+                />
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-20 overflow-hidden border-y border-[var(--line)] py-6">
-          <div className="marquee flex w-max items-center gap-12">
-            {[...Object.values(groups).flat(), ...Object.values(groups).flat()].map((c, i) => (
-              <span key={i} className="font-display text-lg font-light tracking-widest text-[var(--mute)]/60">
-                {c.toUpperCase()} <span className="text-[var(--brand-gold)]">·</span>
-              </span>
             ))}
           </div>
         </div>

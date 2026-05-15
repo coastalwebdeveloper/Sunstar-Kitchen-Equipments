@@ -16,10 +16,6 @@ const reviews = [
     body: "From gas line installation to exhaust systems, everything was handled professionally. The kitchen operates efficiently and the equipment quality is excellent. Highly recommended for restaurant setups." },
   { n: "Sathyanarayan Ampar", r: "Managing Partner", l: "Krishnam Udupi Hotel", t: "Hotel Kitchen", s: 5, img: sathyanarayanAmpar,
     body: "The complete kitchen solution provided by Sunstar has transformed our hotel operations. Professional team, quality installation, and excellent equipment. Very satisfied with their service and support." },
-  { n: "Priya Sharma", r: "Owner", l: "Bengaluru", t: "Bakery Display", s: 5,
-    body: "The display counters they provided for our bakery are absolutely beautiful. The LED lighting and temperature control are perfect for showcasing our products." },
-  { n: "Chef Anand", r: "Head Chef", l: "Bengaluru", t: "Restaurant Kitchen", s: 5,
-    body: "Working with Sunstar was a great experience. They understood our kitchen workflow requirements and delivered exactly what we needed. Excellent craftsmanship!" },
 ];
 
 function ReviewsPage() {
@@ -34,7 +30,7 @@ function ReviewsPage() {
       />
       <section className="mx-auto max-w-6xl px-6 pb-24 md:pb-32">
         <div className="grid gap-px overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--line)] md:grid-cols-4">
-          {[["4.9", "Average rating"], ["100+", "Happy clients"], ["98%", "Would recommend"], ["15+", "Years experience"]].map(([v, l]) => (
+          {[["4.9", "Average rating"], ["50+", "Happy clients"], ["98%", "Would recommend"], ["15+", "Years experience"]].map(([v, l]) => (
             <div key={l} className="bg-white p-8">
               <p className="font-display text-4xl font-semibold">{v}</p>
               <p className="mt-2 font-grotesk text-xs uppercase tracking-widest text-[var(--mute)]">{l}</p>
@@ -42,7 +38,7 @@ function ReviewsPage() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {reviews.map((r) => (
             <figure key={r.n} className="group rounded-3xl glass-strong p-7 shadow-luxe transition hover:-translate-y-1">
               <div className="flex items-center justify-between">
@@ -54,27 +50,22 @@ function ReviewsPage() {
               <blockquote className="mt-5 font-display text-base font-medium leading-relaxed">
                 "{r.body}"
               </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3 border-t border-[var(--line)] pt-4">
-                {r.img ? (
-                  <div className="h-10 w-10 overflow-hidden rounded-full">
-                    <img 
-                      src={r.img} 
-                      alt={r.n} 
-                      className={`h-full w-full object-cover ${
-                        r.n === "Raghavendra Kanchan" 
-                          ? "object-top" 
-                          : "object-center"
-                      }`}
-                    />
-                  </div>
-                ) : (
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--soft-red)] font-display text-sm font-semibold text-[var(--brand-red)]">
-                    {r.n.split(" ").pop()?.[0]}
-                  </div>
-                )}
+              <figcaption className="mt-6 flex items-center gap-4 border-t border-[var(--line)] pt-4">
+                <div className="h-20 w-20 overflow-hidden rounded-full shadow-md">
+                  <img 
+                    src={r.img} 
+                    alt={r.n} 
+                    className={`h-full w-full object-cover ${
+                      r.n === "Raghavendra Kanchan" 
+                        ? "object-top" 
+                        : "object-center"
+                    }`}
+                  />
+                </div>
                 <div>
-                  <p className="font-display text-sm font-semibold">{r.n}</p>
-                  <p className="font-grotesk text-xs text-[var(--mute)]">{r.r} · {r.l}</p>
+                  <p className="font-display text-base font-semibold">{r.n}</p>
+                  <p className="font-grotesk text-sm text-[var(--brand-red)]">{r.r}</p>
+                  <p className="font-grotesk text-xs text-[var(--mute)]">{r.l}</p>
                 </div>
               </figcaption>
             </figure>

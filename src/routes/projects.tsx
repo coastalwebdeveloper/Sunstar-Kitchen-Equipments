@@ -131,9 +131,9 @@ const testimonials = [
 
 const stats = [
   { value: "15+", label: "Years Experience" },
-  { value: "500+", label: "Installations" },
-  { value: "200+", label: "Clients" },
-  { value: "Karnataka", label: "Wide Service" }
+  { value: "100+", label: "Installations" },
+  { value: "100+", label: "Clients" },
+  { value: "India", label: "Wide Service" }
 ];
 
 const projects = [
@@ -279,48 +279,6 @@ function ProjectsPage() {
                 {i < processSteps.length - 1 && (
                   <div className="absolute -bottom-4 left-1/2 hidden h-8 w-px -translate-x-1/2 bg-gradient-to-b from-[var(--line)] to-transparent lg:block" />
                 )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: Client Testimonials */}
-      <section className="relative bg-[#f5f5f3] py-24 md:py-32">
-        <div className="absolute -top-32 -left-32 h-64 w-64 rounded-full bg-[var(--brand-gold)]/30 blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 h-64 w-64 rounded-full bg-[var(--brand-red)]/20 blur-3xl" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="text-center">
-            <Eyebrow>What Our Clients Say</Eyebrow>
-            <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-[var(--mute)]">
-              Trusted by hotels, bakeries, restaurants, hospitals, and commercial food businesses across Karnataka.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {testimonials.map((testimonial, i) => (
-              <div key={i} className="group rounded-3xl glass-strong p-6 shadow-luxe transition hover:-translate-y-2">
-                <div className="flex gap-1 text-[var(--brand-gold)]">
-                  {Array.from({ length: testimonial.rating }).map((_, idx) => (
-                    <Star key={idx} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="mt-4 font-body text-sm leading-relaxed">
-                  "{testimonial.review}"
-                </blockquote>
-                <div className="mt-6 flex items-center gap-3 border-t border-[var(--line)] pt-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--brand-red)] font-display text-sm font-bold text-white">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <p className="font-display text-sm font-semibold">{testimonial.name}</p>
-                    <p className="font-grotesk text-xs text-[var(--mute)]">{testimonial.role}</p>
-                    <p className="font-grotesk text-xs text-[var(--mute)]">{testimonial.company}</p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
