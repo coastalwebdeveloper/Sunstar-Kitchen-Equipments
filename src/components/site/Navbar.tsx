@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import logo from "@/assets/Logo.webp";
@@ -16,6 +16,8 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
@@ -35,16 +37,23 @@ export function Navbar() {
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
-          {links.map((l) => (
-            <li key={l.to}>
-              <Link
-                to={l.to}
-                className="group relative rounded-full px-4 py-2 font-grotesk text-sm font-medium text-[var(--ink)]/70 transition hover:text-[var(--ink)]"
-              >
-                <span className="underline-gold">{l.label}</span>
-              </Link>
-            </li>
-          ))}
+          {links.map((l) => {
+            const isActive = location.pathname === l.to;
+            return (
+              <li key={l.to}>
+                <Link
+                  to={l.to}
+                  className={`group relative rounded-full px-4 py-2 font-grotesk text-sm font-medium transition ${
+                    isActive 
+                      ? "bg-[var(--brand-red)] text-white" 
+                      : "text-[var(--ink)]/70 hover:text-[var(--ink)]"
+                  }`}
+                >
+                  <span className={isActive ? "" : "underline-gold"}>{l.label}</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -77,17 +86,24 @@ export function Navbar() {
       {open && (
         <div className="mx-2 mt-2 rounded-3xl glass-strong p-3 shadow-luxe sm:mx-4 sm:p-4 md:mx-auto md:max-w-6xl lg:hidden reveal">
           <ul className="grid gap-1">
-            {links.map((l) => (
-              <li key={l.to}>
-                <Link
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-2xl px-3 py-2.5 font-grotesk text-sm font-medium hover:bg-[var(--soft-red)] sm:px-4 sm:py-3"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((l) => {
+              const isActive = location.pathname === l.to;
+              return (
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className={`block rounded-2xl px-3 py-2.5 font-grotesk text-sm font-medium sm:px-4 sm:py-3 ${
+                      isActive 
+                        ? "bg-[var(--brand-red)] text-white" 
+                        : "hover:bg-[var(--soft-red)]"
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              );
+            })}
             <li className="pt-2">
               <Link
                 to="/contact"

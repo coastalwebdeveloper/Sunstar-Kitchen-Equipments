@@ -53,16 +53,16 @@ function ClientsPage() {
         {/* CLIENT LOGOS SECTION */}
         <div className="mt-16">
           <Eyebrow>Our Valued Partners</Eyebrow>
-          <div className="mt-8 grid gap-6 grid-cols-2 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {clientLogos.map((client, i) => (
               <div
                 key={i}
-                className="grid aspect-[3/2] place-items-center rounded-2xl glass-strong p-3 shadow-luxe"
+                className="grid aspect-[4/3] place-items-center rounded-xl overflow-hidden"
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="max-h-full max-w-full object-contain"
+                  className="h-full w-full object-cover"
                 />
               </div>
             ))}

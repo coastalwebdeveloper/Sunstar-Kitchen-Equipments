@@ -162,7 +162,7 @@ function HomePage() {
 
         {/* Logo strip */}
         <div className="relative mt-16 overflow-hidden border-y border-[var(--line)] py-8">
-          <div className="marquee flex w-max items-center gap-16 pl-16">
+          <div className="marquee flex w-max items-center gap-8 pl-8">
             {[...clientLogos, ...clientLogos].map((logo, i) => (
               <div key={i} className="flex h-16 w-32 items-center justify-center">
                 <img 
